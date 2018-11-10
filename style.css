@@ -1,0 +1,53 @@
+/*style.css*/
+
+body{
+	font-family:Open Sans; /*Roman;/*Courier New;/*NSimSun;*/
+}
+	
+head{
+	image-rendering: crisp-edges;
+}
+
+div.content{
+	/* padding-left:11em; */
+	margin-left: auto;
+	margin-right: auto;
+	max-width:31em;
+	text-align:justify;
+	font-size:0.93em;
+}
+
+	
+h1{
+	font-size:	1.3em;
+	/* font-family: courier new; */
+	font-weight: lighter;
+	text-transform: uppercase;
+	/* border-bottom: 2px solid black; */
+	letter-spacing: 4px;
+	text-align:	center;
+}
+
+h4{
+	/* font-family: times new roman; */
+	font-weight: lighter;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+h3{
+	/* font-family: Courier New; */
+	font-style: italic;
+	font-weight:lighter;
+	font-size:75%;
+}
+
+ul{
+	float:left;
+	max-width:10em;
+	padding-right:10px;
+}
+
+li{
+	list-style-type:none;
+}
