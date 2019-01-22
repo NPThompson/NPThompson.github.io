@@ -1,0 +1,16 @@
+#! /bin/awk -f
+
+#  blag	    Noah Thompson	|	2019
+#
+# blag is a utility for converting ASCII to HTML
+# the name of the file becomes the title
+# lines beginning with a tab become headers(h2)
+# regular lines are paragraphs
+
+
+BEGIN { if( CSS == "" ) CSS = "style.css";
+        print "<!DOCTYPE HTML> <head> <title>" ARGV[1] "</title> <link rel=\"stylesheet\" href = \"" CSS "\"></head> <body>" }
+	#substr to strip leading tab
+/^\t/ { print "<h2>" substr($0,2) "</h2>"; next }
+      { print "<p>"$0"</p>"  }
+END   { print "</body> </html>" }

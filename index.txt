@@ -1,0 +1,2 @@
+../tutorials/SYWBAH.txt 	  = Learn to Code
+../tutorials/lisp101.txt 	  = LISP 101
