@@ -6,11 +6,21 @@
 # the name of the file becomes the title
 # lines beginning with a tab become headers(h2)
 # regular lines are paragraphs
-
+# use css=style.css
 
 BEGIN { if( CSS == "" ) CSS = "style.css";
-        print "<!DOCTYPE HTML> <head> <title>" ARGV[1] "</title> <link rel=\"stylesheet\" href = \"" CSS "\"></head> <body>" }
+        unformatted = "false"; #
+        print "<!DOCTYPE HTML> <head> <title>" ARGV[1] "</title> <link rel=\"stylesheet\" href = \"" CSS "\"></head> <body><div class = \"content\">" }
 	#substr to strip leading tab
-/^\t/ { print "<h2>" substr($0,2) "</h2>"; next }
-      { print "<p>"$0"</p>"  }
-END   { print "</body> </html>" }
+
+#[code] tag delineates text to be left untouched
+/^\[code\]/{unformatted = "true"; print "<xmp>"; next}
+/^\[\/code\]/{unformatted = "false"; print "</xmp>"; next}
+/.*/{if(unformatted == "true"){print $0; next} }
+
+/^.\.*)/{print "<a href=\"#" substr($0,0,3) "\">" $0 "</a>"; next } #N.C) -> table entry N sub C (substring gets N and dot and C)
+/^!/  {print "<h2><a name= \"" substr($0,2,3) "\">" substr($0,2) "</a></h2>"; next }             #! -> title and anchor
+
+       {print "<p>"$0"</p>"  }
+
+END { print "</div></body> </html>" }
