@@ -1,15 +1,20 @@
 /*style.css*/
 
 body{
-	font-family:Open Sans; /*Roman;/*Courier New;/*NSimSun;*/
+    font-family:"Deja Vu Sans Condensed";
 }
-	
+
+img{
+    max-width:100%;
+    max-height:100%;
+}
+
 head{
 	image-rendering: crisp-edges;
 }
 
 div.content{
-	/* padding-left:11em; */
+    /* padding-left:11em; */
 	margin-left: auto;
 	margin-right: auto;
 	max-width:31em;
