@@ -1,0 +1,18 @@
+<!DOCTYPE HTML> <head> <title>../tutorials/linear_algebra101</title> <link rel="stylesheet" href = "style.css"></head> <body><div class = "content">
+<h1><a name="linear algebra 101">linear algebra 101</a></h1>
+<p>	Preamble: You'll need to know intermediate algebra and trigonometry before tackling linear algebra.</p>
+<h1><a name="Contents:">Contents:</a></h1>
+<a href="#vectors">1.) vectors</a><br/>
+<a href="#matrices">2.) matrices</a><br/>
+<a href="#applications of matrices">3.) applications of matrices</a><br/>
+<a href="#vector spaces">4.) vector spaces</a><br/>
+<h1><a name="vectors">vectors</a></h1>
+<p>	Vectors are collections of numbers with a definite size. Each number in a vector is called a component of the vector. Most often, a vector represents a point in space. Two-component vectors represent points in 2D space, Three-component vectors represent points in 3D space, etc. Some familiar operations can be performed on vectors. When an operator combines a vector and regular number, it is called a scalar operation, and the number is often called a scalar. In the context of vectors, single numbers are often called scalars to emphasize the difference between them and vectors.</p>
+<p>	Two vectors can be added or subtracted by 'distributing' the operation over their corresponding components. A vector can be multiplied or divided by a scalar by distributing that operation over each component. To multiply two vectors, multiply each corresponding component and sum them up.</p>
+<h1><a name="matrices">matrices</a></h1>
+<p>	A matrix is a grid of numbers. It can be thought of as a number of column vectors glued together side-by-side or, simultaneously, a number of row vectors laid one on top of the other. There is no limit to the size of a matrix, and it need not be square- a matrix may have more rows than columns or vice-versa.</p>
+<p>	The simplest interpretation of a matrix is a system of linear equations. Here each row represents a single equation, each column a single variable, and the numbers in the matrix are the coefficients. There are other interpretations, however. A Matrix can represent a system of coordinates for a space, which is simultaneously a transformation of points( vectors ) between spaces.</p>
+<p>	Matrices, like numbers and vectors, can be operated on. They can be multiplied and added to by scalars, but these operations are very simple. For both scalar operations, you simply distribute the operation over every element in the matrix. Matrix multiplication is a much more involved operation which produces more interesting behavior. This procedure for multiplication can multiply Matrices by Vectors and vice-versa, in fact, using this procedure will show that vectors are simply matrices with only one row or column.</p>
+<p>	So, given A and B, two matrices, we must calculate the product, AB = C. The procedure is this: For every Row in A, For every Column in B, Multiply the corresponding element from the row of A by the element from the row of B, and sum these up. This places limitations on what sizes of Matrices can be multiplied together. Since the rows of A must be matched against the columns of B, the rows of A must be of the same length as the columns of B. In other words, A must be as wide as B is tall. The result, C, will be as tall as A and as wide as B. Here's an example:</p>
+<img src="matrix01.jpg">
+</div></body> </html>
