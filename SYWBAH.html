@@ -1,51 +1,39 @@
-<!DOCTYPE HTML> <head> <title>../tutorials/SYWBAH</title> <link rel="stylesheet" href = "style.css"></head> <body><div class = "content">
+<!DOCTYPE HTML> <head> <title>tutorials/SYWBAH</title> <link rel="stylesheet" href = "style.css"></head> <body><div class = "content">
 <h1><a name=""></a></h1>
-<h1><a name="Learn to Code">Learn to Code</a></h1>
+<h1><a name="How Do I Learn to Code?">How Do I Learn to Code?</a></h1>
 <h1><a name=""></a></h1>
-<p>	Programming is fascinating and useful, but very confusing for the beginner. This tutorial is designed to help the neophyte programmer choose his first language. To do so, it provides some history of programming languages and practical advice derived from the experience of the author.</p>
-<h1><a name=""></a></h1>
-<h1><a name=""></a></h1>
-<h1><a name="Is Code Like Math?">Is Code Like Math?</a></h1>
-<h1><a name=""></a></h1>
-<p>	No, but they complement each other well. Both are abstract. But while Math studies static, absolute truths in the form of equations, Code guides processes, which evolve over time. Knowing either one will help you learn the other, but to start coding, you only need to know basic arithmetic. Code can be less abstract than math, which makes it easier to learn. The proof of a program is that it works, which anyone can see, but the proof of a theorem is just as abstract as the theorem it proved.</p>
-<h1><a name=""></a></h1>
-<p>	Both are pedantic. That is, unlike literary criticism or gender studies, here words have precise meanings. You'll need to learn to make very subtle distinctions, and follow long trains of thought with exacting precision. It's exhausting and confusing at first, and mistakes are common. Most mistakes will be caught by the interpreter of your language, which will tell you what you did wrong and where, allowing you to fix it. The truly frustrating errors are called bugs: errors which neither you nor the computer are aware of. A bug causes what we call in the vernacular 'undefined behavior'.</p>
+<p>	Computer programming is fascinating and useful, but very confusing for the beginner. There are so many different tools, systems, and schools of thought on the subject that it is hard to know where to begin. Thus the need for articles like this one. Here I will answer some frequently asked questions about code and offer my own opinion on the best way to start. Much of my advice is simply the complement of the mistakes I made in the learning process. Hopefully I can spare you some of the headaches I put myself through!</p>
 <h1><a name=""></a></h1>
 <h1><a name=""></a></h1>
 <h1><a name=""></a></h1>
+<h1><a name="How much math do I need to know?">How much math do I need to know?</a></h1>
 <h1><a name=""></a></h1>
+<p>	When you're starting, just Arithmetic. A little algebra( especially a knowledge of functions ) will help, but is not strictly necessary. As your knowledge becomes more advanced, you'll want to learn Trigonometry and Linear Algebra. Calculus and other advanced maths may or may not be necessary, depending on what programs you're trying to write. Actually, an excellent way to learn Math is to write programs that model them. This is an exciting stage of learning to program, when you can program to learn.</p>
 <h1><a name=""></a></h1>
+<p>	Math and Code have a dichotomous relationship, forming something like the Yin and Yang of the problem-solving cosmos. They complement each other. Math studies the relationships between variables as encoded by equations, Code commands variables to undergo change through processes. Since Code runs on a machine, you can see the result, and interact with your programs. The proof of a program is that it works, which anyone can see, but the proof of a mathematical theorem is just as abstract as the theorem it proved. </p>
 <h1><a name=""></a></h1>
+<p>	</p>
+<h1><a name="What Language should I start with?">What Language should I start with?</a></h1>
 <h1><a name=""></a></h1>
+<p>	Start with Scheme! Python is a close second. Of course, if you know anyone who codes, take advantage of their experience and try their language. In general, make sure whatever language you start with has an interactive mode( e.g. has an interpreter ). In general, there are two ways to code: batch mode and interactive mode. In batch mode, all of your code for a project, held in text files, is fed into the compiler which produces the program for you. In interactive mode, you can type any piece of code into an interpreter and see immediately what it does. Programming in Interactive mode will help you learn more quickly, is easier to debug, and just way more fun.</p>
 <h1><a name=""></a></h1>
-<h1><a name="Languages and Paradigms">Languages and Paradigms</a></h1>
+<p>	I recommend that you focus on learning the basics and writing small programs for a while. The important thing is that you develop an intuitive model of how the machine works, what your programs mean, how algorithms work, and what the different data structures are like. Once you have this inner-eye you can search out any language you want.</p>
 <h1><a name=""></a></h1>
-<p>	You may be surprised to discover just how 'hands-on' coding is. There is a lot of theory involved, but the skill itself is practical, even experimental. The best way to learn is to pick a programming language and start practicing it. Sixty years ago that wouldn't have been a hard choice: there were just a handful of languages to choose from. But since then the languages have multiplied and mutated, until now there are literally hundreds of them.  </p>
+<h1><a name="What else should I learn?">What else should I learn?</a></h1>
 <h1><a name=""></a></h1>
-<p>	Just like how your natural language( english, korean, or whatever the case may be ) has become an almost perfect reflection of your thought, so too will your programming language. But languages do not just reflect our thoughts, they influence them. You will find that Programming languages will shape how you think about programs. This is what we call the 'paradigm' of the language. </p>
+<p>	Learn to use the command-line. Also, get a machine with a GNU/Linux Operating System. If you're not ready for that step, install MinGW on Windows. </p>
 <h1><a name=""></a></h1>
-<p>	The machine itself 'speaks' machine code, which varies according to the specific machine you're talking to, but in general thinks in terms of shuffling bits around and twiddling their values. Initially, programmers wrote their programs in machine code. But our programs quickly exhausted our ability to comprehend them. So programmers came up with new ideas( or borrowed old ones ) to organize their programs, and wove the ideas directly into the syntax of new languages.</p>
+<h1><a name="What's a 'Programming Paradigm'?">What's a 'Programming Paradigm'?</a></h1>
 <h1><a name=""></a></h1>
-<p>	The new languages, built out of machine code, form an interface between the machine and the programmer. The interpreter of the language translates the higher-level language into machine code form, so that the programmer can ignore details which are irrelevant to his problem. The techniques which the language supports for suppressing detail and phrase the problem inevitably form a paradigm.</p>
+<p>	They are metaphors or models of computation, designed to simplify and organize programs by structuring them in larger logical pieces than is avilable on the raw hardware. The machine itself only 'speaks' machine code, a language where each instruction is represented by a number, and can perform such operations as: reading a word from memory into a register, writing a word in a register to memory, and adding the contents of two registers together. Trying to write any program of signifcance in Machine code is not easy. Back in the day, programmers wrote their programs in machine code. But the programs quickly exhausted the limits of human comprehension. It became clear that a method(paradigm) was needed for organizing these fantastically complex programs.</p>
 <h1><a name=""></a></h1>
-<p>	The clearly distinct paradigms are Functional, Imperative, Logical, and Object-Oriented. Most programming languages tend to favor one paradigm over another, though they typically support features from a mix of paradigms. Actually Logical is pretty hard to combine with other paradigms, but I digress. Most coders have their own favorite language or paradigm, and flame wars over which one is best are not unheard-of. My own opinion is that the functional paradigm is typically the best, but in those cases when it is not, you need a language with only a few, simple ideas and some ability to modify itself, so that it can be adapted to that paradigm. </p>
+<p>	There are two ways to apply a paradigm. One is conventionally. In this way, programmers just mutually agree to design their program a certain way, according to certain principles. The other way is linguistically. In this way, programmers design a programming language with higher-level abstractions and an easier-to-read syntax. The new languages form a bridge between the programmer and machine code. Ultimately all computation still boils down to machine code, but programmers can write in higher-level languages and let interpreters/compilers translate that code into a form that the machine will understand. </p>
 <h1><a name=""></a></h1>
-<h1><a name=""></a></h1>
-<h1><a name=""></a></h1>
-<h1><a name="Choose Your Language">Choose Your Language</a></h1>
-<h1><a name=""></a></h1>
-<p>	<a href="LISP101.html">LISP</a>, to me, is far and away the best choice for a beginner's language. It has a mathematical simplicity that makes it easy to start using, and yet profound and powerful when you fully understand it. As I hinted earlier, LISP has a capacity for modifying itself, and is unique among programming languages for this.</p>
-<h1><a name=""></a></h1>
-<p>	The next-best choice would have to be Python. Python is in many ways like LISP, but its syntax is more complex. This complexity can actually make it easier to understand when you're first learning it, but it means Python falls short of the ideal standard of elegance set by LISP.</p>
-<h1><a name=""></a></h1>
-<p>	Spend some time mastering your first language before you try another one. You will find that many of the concepts you learned will help you with your next language. After LISP and Python, I recommend trying Haskell, C, and Prolog. Haskell is a descendant of LISP with more sophisticated syntax and a beautiful type system, and prolog is a fascinating logical language which is very helpful if you ever find yourself becoming a little bored of coding. C is ubiquitous, running basically everywhere. It is pretty low-level, letting you manage your own memory and fiddle with bits. Learning it is a lesson in history as well as programming.</p>
-<h1><a name=""></a></h1>
-<h1><a name=""></a></h1>
-<h1><a name=""></a></h1>
+<p>	The clearly distinct paradigms are Functional, Procedural, Logical, and Object-Oriented. Most programming languages tend to favor one paradigm over another, though they typically support features from a broad spread of paradigms. The Procedural paradigm crops up in most languages - and actually Logical is pretty hard to combine with other paradigms, but I digress. Most coders have their own favorite language or paradigm, and flame wars over which one is best are not unheard-of. Ultimately, a paradigm is just a tool. If it solves a problem elegantly, great. If not, try a different paradigm. It's most important to understand the problem independently of any particular language or paradigm. If you really understand the problem, writing a solution is as simple as finding a language that you can express your ideas in.</p>
 <h1><a name=""></a></h1>
 <h1><a name="Student Beware!">Student Beware!</a></h1>
 <h1><a name=""></a></h1>
 <p>	You don't need to go to school to learn how to code. If you are teaching yourself, however, be prepared. Expect to spend considerable time and energy studying the basics. Always make sure to practice whatever new concept you're learning, and write small programs at first. You will learn more quickly and understand better by making ten small programs then by struggling to finish one gigantic one. More importantly, you'll actually enjoy coding when you have completed projects to look back on. Also, learn how to use the command-line.</p>
 <h1><a name=""></a></h1>
 <p>	Learning this stuff is challenging and confusing, but it is also tremendously rewarding. Don't wait, jump in and figure things out as you go - that is the only way anyone has ever learned anything in the real world.</p>
-</div></body> </html>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div></body> </html>
