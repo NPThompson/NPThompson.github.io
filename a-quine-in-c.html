@@ -1,0 +1,68 @@
+<!DOCTYPE HTML> <head> <title>a-quine-in-c</title> <link rel="stylesheet" href = "style.css"></head> <body><div class = "content">
+<h1><a name="A Quine in C">A Quine in C</a></h1>
+<h1><a name=""></a></h1>
+<p>	A Quine is a program that copies itself.</p>
+<p>	</p>
+<p>	That is, if you run a quine, you get another program, which is also a quine. The same quine as before. So if you run this new one again, you have another quine. And so on, and so on. In technical language we'd say that the output of a quine is it's own source code. If we were really pretentious we'd say that a quine represents a fixed point in a programming environment. Try using that one at a party, I bet the ladies will love it. </p>
+<p>	</p>
+<p>	There is an obvious diabolical application of this property: namely, worms and viruses. But just because a program has this property doesn't mean it's malicious code. It's fun to write a quine, and enlightening. I wrote one in C.</p>
+<h1><a name=""></a></h1>
+<p>	C is not the ideal language for this. Interpreted languages, like Python or LISP, are much better for it. C can still do it, though, and the extra headaches of doing it in C may help one understand better what is involved. </p>
+<p>	</p>
+<h1><a name="How to do it?">How to do it?</a></h1>
+<h1><a name=""></a></h1>
+<p>	There are really only two ways to write a quine:</p>
+<p>	</p>
+<p>	1.) Copy the source code file directly</p>
+<p>	2.) Embed the source code in the program</p>
+<p>	</p>
+<p>	The first method is easier, and so should be tried first. It's pretty simple to write. We just need to open and print a file. The fact that the file is our source code doesn't matter, since the executable code is in fact a different file from the source code, created by the compiler. </p>
+<p>	</p>
+<xmp>
+#include<stdio.h>
+
+int main (const char** argv, int argc)
+{
+	FILE* f = fopen("quine1.c", "r");
+	char buf[128];
+	
+	while(fgets(buf,127,f) > 0)
+	{
+		printf("%s", buf);
+	}
+	fclose(f);
+	
+}
+</xmp>
+<h1><a name=""></a></h1>
+<h1><a name="Embedding the source code">Embedding the source code</a></h1>
+<h1><a name=""></a></h1>
+<p>	Assuming your file is called 'quine1.c', this will work fine. But, we could do better. Nowhere is it written that a quine can't read from a separate file, but it is somehow... un-elegant, for lack of a better word. Really, there are three things I don't like about this solution:</p>
+<p>	</p>
+<p>	1.) It assumes we have a copy of our source code lying around</p>
+<p>	2.) All instances of the quine are reading from the same source code</p>
+<p>	3.) If the source code file were changed, the output would change, possibly making it no longer a quine</p>
+<p>	</p>
+<p>	To fix these problems, we must try method #2, embedding the source code in the program. Here's a first iteration, where I try to print the source code directly:</p>
+<p>	</p>
+<xmp>
+#include<stdio.h>
+
+int main (const char** argv, int argc)
+{
+	printf("#include<stdio.h>"
+		   "int main(const char** argv, int argc)"
+		   "{"
+		   "printf (...)" // !?!?!
+		   "return 0;"
+		   "}"
+		   );
+
+	return 0;
+}
+</xmp>
+<h1><a name=""></a></h1>
+<p>	Ah yes, my old enemy, the infinite regress. You see the problem. Within printf(), I must put the source code, which has a printf(), in which I must put the source code, and so on, and so on. </p>
+<p>	</p>
+<p>	Clearly, we need to separate the text from the printf() statement. Let's put it in a variable.</p>
+</div></body> </html>

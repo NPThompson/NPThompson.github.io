@@ -1,0 +1,18 @@
+//hbox.js
+
+//hitboxes are centered on the position of the object that owns them
+//in other terms, every hbox is incomplete, you need to know the position
+//of it's owning object to complete them. 
+
+
+circle = function(radius)
+{
+    return {type:"circle",
+	    radius:radius};
+}
+
+line = function(endpoint)
+{
+    return {type:"line",
+	    endpoint:endpoint};
+}
