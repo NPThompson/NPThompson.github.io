@@ -5,8 +5,8 @@
 
 var canvas = document.getElementById("game_canvas");
 var ctx    = canvas.getContext("2d");
-
-
+ctx.font = "13px Courier New";
+ctx.fillStyle = "white";
 nil = undefined;
 
 /*list holds objects for ease and efficiency of insert and filter*/
@@ -60,7 +60,7 @@ greyShade = function(intensity)
 var objects = nil;
 
 spawn(ship(coord(50,250), 0,
-	   38, 39, 37, 97 ));
+	   38, 39, 37, 80 ));
 spawn(ship(coord(550,250), Math.PI,
 	   87, 68, 65, 86));
 
@@ -85,7 +85,7 @@ document.addEventListener('keyup', function(e)
 redraw = function()
 {
     ctx.clearRect(0,0, canvas.width, canvas.height);
-
+	ctx.fillText("P1: Arrows + P, P2: WASD + V", 5, 30);
     forEach(objects,function(obj){obj.draw();})
 
 }
