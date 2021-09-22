@@ -64,5 +64,40 @@ int main (const char** argv, int argc)
 <h1><a name=""></a></h1>
 <p>	Ah yes, my old enemy, the infinite regress. You see the problem. Within printf(), I must put the source code, which has a printf(), in which I must put the source code, and so on, and so on. </p>
 <p>	</p>
-<p>	Clearly, we need to separate the text from the printf() statement. Let's put it in a variable.</p>
+<p>	Clearly, we need to separate the text from the printf() statement. Long story short, here's the result:</p>
+<p>	</p>
+<xmp>
+#include<stdio.h>
+const char* src = 
+		"int main (const char** argv, int argc)"
+		"{"
+			"printf(\"#include<stdio.h>\\nconst char* src= \\\"\");"
+			"for(int i = 0; src[i] != '\\0'; i++)"
+			"{	if(src[i] == '\\\\')"
+			"		printf(\"\\\\\");"
+			"	else if(src[i] == '\"')"
+			"		printf(\"\\\\\");"
+			"	putc(src[i], stdout);"
+			"}"
+			"printf(\"\\\";\\n %s\", src);"
+			"return 0;"
+		"}";
+
+int main (const char** argv, int argc)
+{
+	printf("#include<stdio.h>\nconst char* src= \"");
+
+	for(int i = 0; src[i] != '\0'; i++)
+	{	if(src[i] == '\\')
+			printf("\\");
+		else if(src[i] == '"')
+			printf("\\");
+		putc(src[i], stdout);
+	}
+	
+	printf("\";\n %s", src);
+
+	return 0;
+}
+</xmp>
 </div></body> </html>
