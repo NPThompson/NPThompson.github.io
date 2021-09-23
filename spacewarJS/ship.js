@@ -1,5 +1,10 @@
 
 
+// hardcoding the star for now
+starposition = coord(320,240)
+
+
+
 ray = function( pos, ori, len, mom )
 {
     return {type:"ray",
@@ -118,6 +123,7 @@ update = function(frames)
     {
 	this.ctrl();
 	this.translate();
+	this.gravitate();
 	this.laser.update();
 	frames--;
     }
@@ -132,6 +138,15 @@ update = function(frames)
     	this.pos.y = 0;
 }
 
+gravitate = function()
+{
+	// subtract star position for where we are relative to star
+	// dir = this.pos.add(starposition.scale(-1));
+	var dir = this.pos.scale(-1).add(starposition);
+	var dir = dir.scale(1/(magnitude(dir)*magnitude(dir)));
+	this.mom = this.mom.add(dir);	
+}
+
 translate = function()
 {
     this.pos = this.pos.add(this.mom);
@@ -139,16 +154,25 @@ translate = function()
 
 drawShip = function()
 {
+	var drawpos = this.pos;
     ctx.beginPath();
     ctx.strokeStyle = "#FFFFFF";
-    ctx.arc(this.pos.x, this.pos.y,12, this.ori + 1, this.ori + Math.PI);
-    ctx.arc(this.pos.x,this.pos.y,3,this.ori, this.ori + 2 * Math.PI);
-    ctx.arc(this.pos.x,this.pos.y,12, this.ori + Math.PI, this.ori - 1);
+    ctx.arc(drawpos.x, drawpos.y,12, this.ori + 1, this.ori + Math.PI);
+    ctx.arc(drawpos.x,drawpos.y,3,this.ori, this.ori + 2 * Math.PI);
+    ctx.arc(drawpos.x,drawpos.y,12, this.ori + Math.PI, this.ori - 1);
     ctx.stroke();
     ctx.closePath();
 }
 
-
+drawStar = function()
+{
+	var drawpos = this.pos;
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFFFF";
+	ctx.arc(drawpos.x, drawpos.y, 32, 0, Math.PI*2);
+	ctx.stroke();
+	ctx.closePath();
+}
 
 ship = function( pos, ori, up, lf, rt, fire )
 {
@@ -166,9 +190,10 @@ ship = function( pos, ori, up, lf, rt, fire )
 		hbox:circle(12),
 		update:update,
 		translate:translate,
+		gravitate:gravitate,
 		react:function(other)
 		{
-		    if(other.type == "ship")
+		    if(other.type == "ship" || other.type == "star")
 			this.hp -= 10;
 		    if(other.type == "ray")
 		    {
@@ -180,4 +205,23 @@ ship = function( pos, ori, up, lf, rt, fire )
 
     ret.laser = laser(ret);
     return ret;
+}
+
+star = function( pos )
+{
+	var ret = {
+		type:"star",
+		pos:pos,
+		hbox:circle(32),
+		update:function(dt)
+		{
+			
+		},
+		react:function(other)
+		{
+			
+		},
+		draw:drawStar
+	};
+	return ret;
 }

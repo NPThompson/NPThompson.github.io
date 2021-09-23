@@ -63,6 +63,7 @@ spawn(ship(coord(50,250), 0,
 	   38, 39, 37, 80 ));
 spawn(ship(coord(550,250), Math.PI,
 	   87, 68, 65, 86));
+spawn(star(coord(320,240)));
 
 var keys = [];
 
